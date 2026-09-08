@@ -1,0 +1,21 @@
+<phpunit
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.5/phpunit.xsd"
+        bootstrap="vendor/autoload.php"
+        cacheDirectory=".phpunit.cache">
+    <php>
+        <env name="EMAILON_API_KEY" value=""/>
+        <env name="EMAILON_API_URL" value=""/>
+    </php>
+    <testsuites>
+        <testsuite name="Unit">
+            <file>./test/ConfigTest.php</file>
+            <file>./test/ParamsIteratorTest.php</file>
+            <file>./test/ParamsTest.php</file>
+            <directory>./test/Http</directory>
+        </testsuite>
+        <testsuite name="Integration">
+            <directory>./test/Endpoint</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

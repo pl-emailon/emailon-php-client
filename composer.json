@@ -1,0 +1,38 @@
+{
+    "name": "emailon-api/php-client",
+    "description": "Email Marketing Software library for PHP",
+    "homepage": "https://github.com/emailon-api/php-client",
+    "autoload": {
+        "psr-4": {
+            "EmailonApi\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "EmailonApi\\Test\\": "test/"
+        }
+    },
+    "require": {
+        "php": ">=8.2",
+        "ext-json": "*",
+        "ext-curl": "*"
+    },
+    "suggest": {
+        "ext-apcu": "Required to use the EmailonApi\\Cache\\Apc cache adapter."
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.92",
+        "phpstan/phpstan": "^2.1",
+        "phpunit/phpunit": "^11.5",
+        "rector/rector": "^2.1"
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit -c phpunit.xml.dist --testsuite Unit",
+        "test-integration": "./vendor/bin/phpunit -c phpunit.xml.dist --testsuite Integration",
+        "fix-style": "./vendor/bin/php-cs-fixer fix .",
+        "analyse": "./vendor/bin/phpstan analyse -c phpstan.neon --memory-limit=-1",
+        "refactor": "./vendor/bin/rector process -c rector.php",
+        "refactor-dry-run": "./vendor/bin/rector process -c rector.php --dry-run"
+    },
+    "license": "MIT"
+}
